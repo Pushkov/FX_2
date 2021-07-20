@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="pan_parrent" fx:id="pan_parrent" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@styles/my.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windowControllers.mainWindowController">
+<bottom>
+    <StackPane prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: lightsteelblue;" BorderPane.alignment="CENTER">
+        <children>
+            <Label text="Здесь могла быть Ваша реклама !!!" />
+        </children></StackPane>
+</bottom>
+<left>
+    <Pane maxWidth="180.0" minWidth="180.0" prefHeight="530.0" prefWidth="180.0" styleClass="viewdata_pane" BorderPane.alignment="CENTER">
+        <children>
+            <TextField fx:id="name_truck" editable="false" layoutX="10.0" layoutY="40.0" prefHeight="25.0" prefWidth="114.0" styleClass="viewdata_textfield" />
+            <TextField fx:id="name_trailer" editable="false" layoutX="10.0" layoutY="90.0" prefHeight="25.0" prefWidth="114.0" styleClass="viewdata_textfield" />
+            <Label layoutX="15.0" layoutY="23.0" text="Тягач:" />
+            <Label layoutX="15.0" layoutY="73.0" text="Полуприцеп:" />
+            <Label layoutX="15.0" layoutY="125.0" text="Груз:" />
+              <Button fx:id="tr_clear" layoutX="145.0" layoutY="40.0" mnemonicParsing="false" onAction="#clearTruck" prefHeight="25.0" prefWidth="0.0" styleClass="clear_button" text="X" />
+              <Button fx:id="pp_clear" layoutX="145.0" layoutY="90.0" mnemonicParsing="false" onAction="#clearTrailer" prefHeight="25.0" prefWidth="0.0" styleClass="clear_button" text="X" />
+            <Button fx:id="prod_clear1" layoutX="145.0" layoutY="125.0" mnemonicParsing="false" onAction="#clearProduction" prefHeight="25.0" prefWidth="0.0" styleClass="clear_button" text="X" />
+              <CheckBox fx:id="autodata" layoutX="14.0" layoutY="468.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Автозаполнение">
+                  <opaqueInsets>
+                      <Insets />
+                  </opaqueInsets>
+              </CheckBox>
+            <Label layoutX="6.0" layoutY="5.0" text="Исходные данные:" />
+            <TableView fx:id="tableProduction" layoutX="10.0" layoutY="150.0" prefHeight="48.0" prefWidth="164.0" styleClass="viewdata_tableview">
+              <columns>
+                <TableColumn fx:id="tableProductionName" prefWidth="120.0" resizable="false" text="Продукция" />
+                <TableColumn fx:id="tableProductionQty" prefWidth="40.0" text="Кол." />
+              </columns>
+               <padding>
+                  <Insets left="2.0" right="2.0" />
+               </padding>
+            </TableView>
+        </children>
+    </Pane>
+</left>
+<center>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <children>
+            <Pane fx:id="pan_gruz" prefHeight="524.0" prefWidth="655.0" style="-fx-background-color: gray;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <Button fx:id="bb_kol" layoutX="296.0" layoutY="113.0" mnemonicParsing="false" onAction="#addProduction" text="Добавить груз" />
+                    <ToggleButton fx:id="button_gruz_type_metiz" layoutX="42.0" layoutY="14.0" mnemonicParsing="false" onAction="#setProductionType" prefHeight="25.0" prefWidth="151.0" text="Метизное производство">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="gr_type" />
+                        </toggleGroup>
+                    </ToggleButton>
+                    <ToggleButton fx:id="button_gruz_type_prokat" layoutX="205.0" layoutY="14.0" mnemonicParsing="false" onAction="#setProductionType" prefHeight="25.0" prefWidth="162.0" text="Прокатное производство" toggleGroup="$gr_type" />
+                    <ComboBox fx:id="cb_production_name" layoutX="43.0" layoutY="113.0" prefWidth="150.0" />
+                    <Label layoutX="43.0" layoutY="82.0" text="Вид продукции:" />
+                    <Label layoutX="193.0" layoutY="82.0" text="Количество единиц:" />
+                  <ComboBox fx:id="cb_production_kol" layoutX="217.0" layoutY="113.0" prefHeight="25.0" prefWidth="70.0" />
+                </children>
+            </Pane>
+            <AnchorPane fx:id="pan_var" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <ScrollPane fx:id="sp1" layoutY="179.0" prefHeight="341.0" prefWidth="639.0" style="-fx-border-width: 2; -fx-border-color: darkgray;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="175.0">
+                        <content>
+                            <AnchorPane fx:id="pan_results" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="620.0" />
+                        </content>
+                    </ScrollPane>
+                    <Button fx:id="btn_report" layoutX="541.0" layoutY="45.0" mnemonicParsing="false" onAction="#panelReport" prefHeight="82.0" prefWidth="54.0" text="Отчет" />
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pan_transport" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane styleClass="filter_grid">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints prefHeight="20.0" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                      <ComboBox id="truck_type" fx:id="select_type_t" onAction="#cb_transport" prefWidth="150.0" promptText="Выбор типа тягача" styleClass="filter_cbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <children>
+                                      <ComboBox id="trailer_type" fx:id="select_type_pp" onAction="#cb_transport" prefHeight="25.0" prefWidth="226.0" promptText="Выбор типа полуприцепа" styleClass="filter_cbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </GridPane>
+                        <GridPane styleClass="select_grid">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                      <ComboBox id="truck_model" fx:id="select_model_t" onAction="#cb_transport" prefHeight="25.0" prefWidth="250.0" promptText="Выбор модели тягача" styleClass="select_cbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <children>
+                                      <ComboBox id="trailer_model" fx:id="select_model_pp" onAction="#cb_transport" prefHeight="25.0" prefWidth="236.0" promptText="Выбор модели полуприцепа" styleClass="select_cbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </GridPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: beige;" VBox.vgrow="ALWAYS" />
+                        <AnchorPane prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <GridPane hgap="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                            <Label layoutX="22.0" layoutY="3.0" text="X1:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                            <TextField fx:id="load_X1" editable="false" layoutX="58.0" prefHeight="25.0" prefWidth="90.0" text="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                       <children>
+                                            <Label layoutX="32.0" layoutY="7.0" text="X2:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                            <TextField fx:id="load_X2" editable="false" layoutX="43.0" layoutY="4.0" prefHeight="25.0" prefWidth="91.0" text="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                       <children>
+                                            <Label layoutX="26.0" layoutY="8.0" text="X3:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                            <TextField fx:id="load_X3" editable="false" layoutX="36.0" layoutY="3.0" prefHeight="25.0" prefWidth="89.0" text="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="50.0" right="50.0" top="30.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </children>
+    </AnchorPane>
+</center>
+   <top>
+      <GridPane prefHeight="50.0" prefWidth="701.0" styleClass="menu_grid" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" />
+            <ColumnConstraints halignment="CENTER" />
+          <ColumnConstraints halignment="CENTER" />
+            <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="263.0" minWidth="30.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <children>
+                    <Button mnemonicParsing="false" onAction="#panelTransport" styleClass="menu_button" text="Select transport" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <children>
+                    <Button mnemonicParsing="false" onAction="#panelProduction" prefHeight="35.0" prefWidth="150.0" styleClass="menu_button" text="Select production" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="277.0" layoutY="10.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <children>
+                    <Button fx:id="pan_calc" mnemonicParsing="false" onAction="#panelVariants" prefHeight="35.0" prefWidth="150.0" styleClass="menu_button" text="Calculate loads" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="524.0" layoutY="10.0" GridPane.columnIndex="3">
+               <children>
+                  <MenuButton layoutX="-38.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menu_mbutton" text="Menu" textAlignment="CENTER" textFill="#d9d6db" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <MenuItem fx:id="new_calculate" mnemonicParsing="false">
+                           <graphic>
+                              <Button id="new" layoutX="15.0" mnemonicParsing="false" onAction="#menu" prefWidth="180.0" styleClass="topmenu_button" text="Новый расчет" />
+                           </graphic></MenuItem>
+                      <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button layoutX="15.0" mnemonicParsing="false" prefWidth="180.0" styleClass="topmenu_button" text="Открыть" />
+                           </graphic></MenuItem>
+                        <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button layoutX="15.0" mnemonicParsing="false" prefWidth="180.0" styleClass="topmenu_button" text="Сохранить" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="new_calculate111" mnemonicParsing="false">
+                           <graphic>
+                              <Separator prefWidth="180.0" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button id="print" layoutX="15.0" mnemonicParsing="false" prefWidth="180.0" styleClass="topmenu_button" text="Печать" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button layoutX="15.0" mnemonicParsing="false" prefWidth="180.0" styleClass="topmenu_button" text="Настройки" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="new_calculate11" mnemonicParsing="false">
+                           <graphic>
+                              <Separator prefWidth="180.0" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="new_calculate1" mnemonicParsing="false">
+                           <graphic>
+                              <Button layoutX="15.0" mnemonicParsing="false" prefWidth="180.0" styleClass="topmenu_button" text="Сменить пользователя" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="new_calculate12" mnemonicParsing="false">
+                           <graphic>
+                              <Button id="exit" layoutX="15.0" mnemonicParsing="false" onAction="#menu" prefWidth="180.0" styleClass="topmenu_button" text="Выход" />
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="16.0" />
+                     </font>
+                  </MenuButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

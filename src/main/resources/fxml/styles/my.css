@@ -1,0 +1,139 @@
+
+.root{
+
+
+}
+.viewdata_pane{
+    -fx-background-color: #D9D6DB;
+}
+
+.menu_grid{
+    -fx-padding: 7;
+    -fx-hgap: 7;
+    -fx-background-color: #A6ABB5;
+}
+
+.filter_grid{
+
+    -fx-padding: 10 50 5 50;
+    -fx-hgap: 50;
+}
+
+.select_grid{
+    -fx-hgap: 30;
+    -fx-padding: 15 30 15 30;
+}
+
+.menu_button,.menu_mbutton {
+    -fx-background-radius: 15;
+    -fx-background-color: #17336B;
+    -fx-background-insets: 3;
+}
+
+.menu_button:hover, .menu_mbutton:hover{
+    -fx-background-color: #2E528F;
+    -fx-background-insets: 0;
+}
+
+.menu_button{
+    -fx-font-family: Trebuchet MS;
+    -fx-font-weight: BOLD;
+    -fx-font-size: 20px;
+    -fx-text-fill: #D9D6DB;
+}
+
+.menu_button:hover{
+    -fx-text-fill: #e0e0e0;
+}
+
+.filter_cbox{
+    -fx-background-radius: 10;
+    -fx-body-color: #D4D9DB;
+    -fx-text-base-color:#3D4252;
+}
+.select_cbox{
+
+    -fx-background-radius: 5;
+    -fx-body-color: #D9D6DB;
+    -fx-text-base-color:#3D4252;
+}
+
+.selected_pane, .clicked_pane, .variant_pane{
+    -fx-background-radius: 15;
+}
+.selected_pane{
+    -fx-background-color: rgba(13, 159, 227, 0.33);
+}
+.clicked_pane{
+    -fx-background-color: rgba(13, 159, 227, 0.33);
+}
+
+.variant_pane{
+    -fx-background-color: #d3d3d3;
+}
+
+.print_root,.print_menu_panel {
+    -fx-background-color: #d9d9d9;
+}
+
+.print_view_panel{
+    -fx-background-color: white;
+    -fx-border-color: darkgray;
+    -fx-border-width: 1;
+}
+
+.topmenu_button{
+    -fx-background-color: rgba(13, 159, 227, 0.33);
+    -fx-background-radius: 5;
+    -fx-font-family: Trebuchet MS;
+    -fx-font-weight: BOLD;
+    -fx-font-size: 14px;
+    -fx-text-fill: #17336B;
+}
+
+.loads_base_pane{
+    -fx-pref-width: 150;
+    -fx-pref-height: 25;
+    -fx-background-color: rgba(13, 159, 227, 1);
+    /*-fx-background-color: rgba(250, 250, 250, 1);*/
+    -fx-background-radius: 15;
+
+}
+
+.loads_base_textfield{
+    -fx-background-color: rgba(13, 159, 227, 1);
+    /*-fx-background-color: rgba(250, 250, 250, 1);*/
+    -fx-background-radius: 15;
+
+}
+.loads_upper_textfield{
+    -fx-background-color: #a5d1ff;
+    -fx-border-color: #101428;
+    -fx-border-radius: 15;
+    /*-fx-background-color: rgba(229, 241, 239, 1);*/
+    -fx-background-radius: 15;
+    -fx-font-family: Trebuchet MS;
+    -fx-font-size: 14px;
+    -fx-text-fill: #17336B;
+    -fx-alignment: CENTER;
+}
+
+.loads_label_1{
+    -fx-background-color: white;
+}
+
+.cabin{
+
+}
+.pp{
+
+}
+
+.zagolovok{
+    -fx-text-fill: #17336B;
+    -fx-font-family: Trebuchet MS;
+    -fx-font-size: 14px;
+
+}
+
+
