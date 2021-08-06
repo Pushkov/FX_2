@@ -13,3 +13,8 @@ P.S. раньше казалось, что глюков в нем поменьш
 <div>
 P.P.S. ну и на код тоже страшновато смотреть....
 </div>
+<div>
+P.P.P.S. Приложение для Android:
+  </br>
+https://play.google.com/store/apps/details?id=nicomed.autoload
+</div>
